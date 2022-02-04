@@ -3,7 +3,10 @@ import './Header.css';
 
 const Header = () => {
     return (
-        <h1 className='title'>Rancid Tomatillos</h1>
+        <header>
+            <h1 className='title'>Rancid Tomatillos</h1>
+        </header>
+
     )
 }
 
