@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Header from './Header.js';
 import movieData from './dummy-data';
+import MovieContainer from './MovieContainer';
 
 class App extends React.Component {
   constructor() {
@@ -12,7 +13,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <h1>Is this working?</h1>
+      <>
+        <Header />
+        <MovieContainer movies={this.state.movies} />
+      </>
     )
   }
 }
