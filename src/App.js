@@ -13,11 +13,15 @@ class App extends React.Component {
       movies: [],
       selectedMovie: {},
       isSelected: false,
+      error: '',
     };
   }
 
   componentDidMount = () => {
-    this.setState({movies: movieData.movies})
+      fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
+      .then(response => response.json())
+      .then(data => this.setState({movies: data.movies}))
+      .catch(error => this.setState({error: error}))
   }
 
   handleClick = (id) => {
@@ -37,6 +41,7 @@ class App extends React.Component {
         <Header />
         {this.state.isSelected && <MovieDetails selectedMovie={this.state.selectedMovie} displayMain={this.displayMain} /> }
         {!this.state.isSelected && <MovieContainer movies={this.state.movies} chooseMovie={this.handleClick} />}
+        {this.state.error && <h2>Sorry, there seems to be an error. Please try again</h2>}
       </>
     )
   }
