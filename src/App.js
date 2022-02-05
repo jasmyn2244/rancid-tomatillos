@@ -31,7 +31,7 @@ class App extends React.Component {
       this.setState({error: response.status})
     }
   }
-  //
+  // Note: May use this code in the future to check for specific errors
   // checkError(response) {
   //   if (response.status === 422 || response.status === 500) {
   //     // this.setState({error: response.status})
@@ -56,7 +56,7 @@ class App extends React.Component {
   displayMain = () => {
     this.setState({isSelected: false})
   }
-
+  // May use this code to display specific error messages.
   // decideErrorMsg = () => {
   //   let errorMsg;
   //   if (this.state.error === 500) {
