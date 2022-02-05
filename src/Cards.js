@@ -3,11 +3,12 @@ import './Cards.css';
 
 const Cards = ({ title, posterPath, releaseDate, avgRating, id }) => {
     return (
-        <button className='movie-cards'>
-            <img src={posterPath} alt='movie poster for {title}' />
-            <span>{title}</span>
-        </button>
+        <section className='movie-cards'>
+            <img src={posterPath} alt={title} />
+            <p>{title}</p>
+            <p>{avgRating.toFixed(1)}</p>
+        </section>
     )
 }
 
-export default Cards 
+export default Cards
