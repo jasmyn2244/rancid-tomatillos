@@ -15,21 +15,23 @@ class App extends React.Component {
       isSelected: false,
     };
   }
+
   componentDidMount = () => {
     this.setState({movies: movieData.movies})
   }
-  onClick = (id) => {
+
+  handleClick = (id) => {
     //Note the set state will  be a bit lagged.
-    const findMovie = this.state.movies.find(movie => movie.id === id)
-    this.setState({selectedMovie: findMovie})
+    const findMovie = this.state.movies.find(movie => movie.id === id);
+    this.setState({selectedMovie: findMovie, isSelected: true})
   }
 
   render() {
     return (
       <>
         <Header />
-        <MovieDetails />
-        <MovieContainer movies={ this.state.movies } chooseMovie={ this.onClick }/>
+        {this.state.isSelected && <MovieDetails /> }
+        {!this.state.isSelected && <MovieContainer movies={this.state.movies} chooseMovie={this.handleClick} />}
       </>
     )
   }
