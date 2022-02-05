@@ -1,5 +1,23 @@
 .movie-cards {
-    width: 20px;
-    height: 20px;
-    padding: 5px;
+    box-sizing: border-box;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    place-self: center;
+    border: red 5px solid;
+    box-shadow: 0px 5px 10px;
+}
+
+.movie-cards:hover {
+    filter: brightness(115%);
+    cursor: pointer;
+    transform: scale(1.1);
+
+}
+
+.movie-cards:focus {
+    filter: brightness(115%);
+    cursor: pointer;
+    transform: scale(1.1);
+
 }
