@@ -5,7 +5,7 @@ const MovieDetails = (props) => {
   return (
     <section className='movie-details'>
       <section>
-        <button className='back-to-main-button'>Back to Main</button>
+        <button className='back-to-main-button' onClick={() => props.displayMain()}>Back to Main</button>
         <img className='movie-backdrop' src={props.selectedMovie.backdrop_path} alt={props.selectedMovie.title} />
         <p className='gradient'></p>
         <h2 className='movie-title'>{props.selectedMovie.title}</h2>

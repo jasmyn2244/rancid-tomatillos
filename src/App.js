@@ -26,11 +26,16 @@ class App extends React.Component {
     this.setState({selectedMovie: findMovie, isSelected: true})
   }
 
+  displayMain = () => {
+    this.setState({isSelected: false})
+
+  }
+
   render() {
     return (
       <>
         <Header />
-        {this.state.isSelected && <MovieDetails selectedMovie={this.state.selectedMovie}/> }
+        {this.state.isSelected && <MovieDetails selectedMovie={this.state.selectedMovie} displayMain={this.displayMain} /> }
         {!this.state.isSelected && <MovieContainer movies={this.state.movies} chooseMovie={this.handleClick} />}
       </>
     )
