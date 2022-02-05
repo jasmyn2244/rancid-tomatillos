@@ -30,7 +30,7 @@ class App extends React.Component {
     return (
       <>
         <Header />
-        {this.state.isSelected && <MovieDetails /> }
+        {this.state.isSelected && <MovieDetails selectedMovie={this.state.selectedMovie}/> }
         {!this.state.isSelected && <MovieContainer movies={this.state.movies} chooseMovie={this.handleClick} />}
       </>
     )
