@@ -3,11 +3,12 @@ import './MovieDetails.css';
 
 const MovieDetails = (props) => {
   return (
-    <section>
+    <section className='movie-details'>
       <section>
-        <button>Back to Main</button>
+        <button className='back-to-main-button'>Back to Main</button>
         <img className='movie-backdrop' src={props.selectedMovie.backdrop_path} alt={props.selectedMovie.title} />
-        <h2>{props.selectedMovie.title}</h2>
+        <p className='gradient'></p>
+        <h2 className='movie-title'>{props.selectedMovie.title}</h2>
       </section>
       <section>
         <section>
