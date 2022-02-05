@@ -2,7 +2,7 @@ import React from 'react';
 import './MovieContainer.css'
 import Cards from './Cards'
 
-const MovieContainer = ({ movies }) => {
+const MovieContainer = ({ movies, chooseMovie }) => {
     const movieCards = movies.map(movie => {
         return (
             <Cards
@@ -12,6 +12,7 @@ const MovieContainer = ({ movies }) => {
                 releaseDate={movie.release_date}
                 id={movie.id}
                 key={movie.id}
+                chooseMovie={chooseMovie}
             />
         )
     })
