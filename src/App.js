@@ -14,15 +14,38 @@ class App extends React.Component {
       selectedMovie: {},
       isSelected: false,
       error: '',
+      errorMsg: ''
     };
   }
 
   componentDidMount = () => {
       fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
-      .then(response => response.json())
+      .then(response => this.handleError(response))
       .then(data => this.setState({movies: data.movies}))
-      .catch(error => this.setState({error: error}))
+      .catch(error => {
+        this.setState({error: response.status})
+        this.decideErrorMsg()
+      })
   }
+  handleError = (response) => {
+    if (response.ok) {
+        return response.json()
+    } else if (!response.ok) {
+      throw new Error (response)
+      this.setState({error: response.status})
+      this.decideErrorMsg()
+
+    }
+  }
+  //
+  // checkError(response) {
+  //   if (response.status === 422 || response.status === 500) {
+  //     // this.setState({error: response.status})
+  //     // this.decideErrorMsg()
+  //   } else {
+  //     return response.json()
+  //   }
+  // }
 
   handleClick = (id) => {
     //Note the set state will  be a bit lagged.
@@ -32,7 +55,19 @@ class App extends React.Component {
 
   displayMain = () => {
     this.setState({isSelected: false})
+  }
 
+  decideErrorMsg = () => {
+    let errorMsg;
+    if (this.state.error === 500) {
+      errorMsg = 'We fucked up. Sorry.'
+    } else if (this.state.error === 404) {
+      errorMsg = 'You fucked up. Sorry'
+    }
+    this.setState({
+      errorMsg: errorMsg
+    })
+    console.log(this.state.errorMsg)
   }
 
   render() {
@@ -41,7 +76,7 @@ class App extends React.Component {
         <Header />
         {this.state.isSelected && <MovieDetails selectedMovie={this.state.selectedMovie} displayMain={this.displayMain} /> }
         {!this.state.isSelected && <MovieContainer movies={this.state.movies} chooseMovie={this.handleClick} />}
-        {this.state.error && <h2>Sorry, there seems to be an error. Please try again</h2>}
+        {this.state.error && <h2>{this.state.errorMsg}</h2>}
       </>
     )
   }
