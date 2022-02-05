@@ -19,9 +19,9 @@ class App extends React.Component {
     this.setState({movies: movieData.movies})
   }
   onClick = (id) => {
+    //Note the set state will  be a bit lagged.
     const findMovie = this.state.movies.find(movie => movie.id === id)
     this.setState({selectedMovie: findMovie})
-    console.log(this.state.selectedMovie)
   }
 
   render() {
