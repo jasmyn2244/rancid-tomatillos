@@ -22,19 +22,14 @@ class App extends React.Component {
       fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
       .then(response => this.handleError(response))
       .then(data => this.setState({movies: data.movies}))
-      .catch(error => {
-        this.setState({error: response.status})
-        this.decideErrorMsg()
-      })
+      .catch(error => console.log(error))
   }
   handleError = (response) => {
     if (response.ok) {
         return response.json()
     } else if (!response.ok) {
-      throw new Error (response)
+      // throw new Error (`Error`)
       this.setState({error: response.status})
-      this.decideErrorMsg()
-
     }
   }
   //
@@ -57,18 +52,18 @@ class App extends React.Component {
     this.setState({isSelected: false})
   }
 
-  decideErrorMsg = () => {
-    let errorMsg;
-    if (this.state.error === 500) {
-      errorMsg = 'We fucked up. Sorry.'
-    } else if (this.state.error === 404) {
-      errorMsg = 'You fucked up. Sorry'
-    }
-    this.setState({
-      errorMsg: errorMsg
-    })
-    console.log(this.state.errorMsg)
-  }
+  // decideErrorMsg = () => {
+  //   let errorMsg;
+  //   if (this.state.error === 500) {
+  //     errorMsg = 'We fucked up. Sorry.'
+  //   } else if (this.state.error === 404) {
+  //     errorMsg = 'You fucked up. Sorry'
+  //   }
+  //   this.setState({
+  //     errorMsg: errorMsg
+  //   })
+  //   console.log(this.state.errorMsg)
+  // }
 
   render() {
     return (
@@ -76,7 +71,7 @@ class App extends React.Component {
         <Header />
         {this.state.isSelected && <MovieDetails selectedMovie={this.state.selectedMovie} displayMain={this.displayMain} /> }
         {!this.state.isSelected && <MovieContainer movies={this.state.movies} chooseMovie={this.handleClick} />}
-        {this.state.error && <h2>{this.state.errorMsg}</h2>}
+        {this.state.error && <h2>Sorry you got a {this.state.error}, please try again.</h2>}
       </>
     )
   }
