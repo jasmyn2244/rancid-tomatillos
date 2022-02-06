@@ -1,4 +1,5 @@
 .movie-cards {
+    font-family: 'Raleway', sans-serif;
     box-sizing: border-box;
     width: 250px;
     display: flex;
@@ -6,7 +7,8 @@
     place-self: center;
     box-shadow: 0px 5px 10px black;
     color: whitesmoke;
-    padding: 3%;}
+    padding: 3%;
+}
 
 .movie-cards:hover {
     filter: brightness(115%);
@@ -19,5 +21,5 @@
     filter: brightness(115%);
     cursor: pointer;
     transform: scale(1.1);
-border: 2px solid whitesmoke;
+    border: 2px solid whitesmoke;
 }
