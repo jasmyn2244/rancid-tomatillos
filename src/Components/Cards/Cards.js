@@ -1,5 +1,5 @@
 import React from 'react';
-import './Cards.css';
+import './Cards.scss';
 
 const Cards = ({ title, posterPath, releaseDate, avgRating, id, chooseMovie }) => {
     return (

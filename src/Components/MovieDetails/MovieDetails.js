@@ -1,5 +1,5 @@
 import React from "react";
-import './MovieDetails.css';
+import './MovieDetails.scss';
 
 const MovieDetails = (props) => {
   return (
@@ -30,7 +30,6 @@ const MovieDetails = (props) => {
       </section>
     </section>
     )
-
   }
 
   export default MovieDetails;

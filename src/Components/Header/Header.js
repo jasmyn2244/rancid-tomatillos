@@ -1,12 +1,11 @@
 import React from 'react';
-import './Header.css';
+import './Header.scss';
 
 const Header = () => {
     return (
         <header>
             <h1 className='title'>Rancid Tomatillos</h1>
         </header>
-
     )
 }
 
