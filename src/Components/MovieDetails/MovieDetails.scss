@@ -9,9 +9,11 @@
 }
 
 .gen-movie {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   border: 5px solid orange;
   img {
-      width: 70%;
+      width: 100%;
       border: 2px solid red;
 
   }
