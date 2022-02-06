@@ -7,7 +7,7 @@ const MovieDetails = (props) => {
       <section>
         <button className='back-to-main-button' onClick={() => props.displayMain()}>Back to Main</button>
         <img className='movie-backdrop' src={props.selectedMovie.backdrop_path} alt={props.selectedMovie.title} />
-        <p className='gradient'></p>
+        // <p className='gradient'></p>
         <h2 className='movie-title'>{props.selectedMovie.title}</h2>
       </section>
       <section>
@@ -32,5 +32,5 @@ const MovieDetails = (props) => {
     )
 
   }
-  
+
   export default MovieDetails;
