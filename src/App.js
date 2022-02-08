@@ -1,9 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Header from './Header.js';
-import MovieContainer from './MovieContainer';
-import MovieDetails from './MovieDetails';
+import './reset.scss';
+import './App.scss';
+import Header from './Components/Header/Header.js';
+import MovieContainer from './Components/MovieContainer/MovieContainer';
+import MovieDetails from './Components/MovieDetails/MovieDetails';
 
 class App extends React.Component {
   constructor() {
