@@ -5,22 +5,49 @@ const getAllMovies = () => {
 }
 
 const getSingleMovie = (id) => {
-    console.log("id", id)
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
         .then(response => checkResponseStatus(response))
-    // .then(data => this.setState({
-    //     selectedMovie: data.movie,
-    //     isSelected: true,
-    // }));
+        .then(data => cleanSingleMovie(data))
 }
 
 const checkResponseStatus = (response) => {
     if (!response.ok) {
         throw new Error(`Error`)
     } else {
-        console.log("response", response)
-        return console.log(response.json())
+        return response.json()
     }
+}
+
+const cleanSingleMovie = ({ movie }) => {
+    let budget;
+    let revenue;
+
+    if (!movie.budget || movie.budget === 0) {
+        budget = 'Not Available'
+    } else {
+        budget = `$${movie.budget}`
+    }
+
+    if (!movie.revenue || movie.revenue === 0) {
+        revenue = 'Not Available'
+    } else {
+        revenue = `$${movie.revenue}`
+    }
+
+    const cleanedMovie = {
+        id: movie.id,
+        title: movie.title,
+        backdrop_path: movie.backdrop_path,
+        release_date: movie.release_date,
+        overview: movie.overview,
+        genres: movie.genres.join(', '),
+        budget: budget,
+        revenue: revenue,
+        runtime: `${movie.runtime} minutes`,
+        tagline: movie.tagline,
+        average_rating: movie.average_rating.toFixed(1),
+    }
+    return cleanedMovie;
 }
 
 export { getAllMovies, getSingleMovie }
