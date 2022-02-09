@@ -1,10 +1,8 @@
-import App from './App'
-
 const getAllMovies = () => {
+    console.log("getAllMovies")
     return fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
-        .then(response => {
-            checkResponseStatus(response)
-        })
+        .then(response => checkResponseStatus(response)
+        )
 }
 
 const getSingleMovie = (id) => {
@@ -17,9 +15,11 @@ const getSingleMovie = (id) => {
 }
 
 const checkResponseStatus = (response) => {
+    console.log("checkResponseStatus", response)
     if (!response.ok) {
         throw new Error(`Error`)
     } else {
+        //console.log("response.json", response.json())
         return response.json()
     }
 }

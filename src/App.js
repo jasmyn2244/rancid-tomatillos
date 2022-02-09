@@ -19,39 +19,21 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
+    console.log('component did mount')
     getAllMovies()
-      .then(data => this.cleanData(data))
+      .then(data => this.setState({ movies: data.movies }))
       .catch(error => this.setState({ error: error }))
-
-    // fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
-    //   .then(response => this.handleError(response))
-    //   .then(data => cleanData)
-    //   .catch(error => console.log(error))
   }
 
-  cleanData = (data) => {
-    console.log('Did clean data get called?')
-    //this.setState({ movies: data.movies }
-
-  }
-
-  // handleError = (response) => {
-  //   if (response.ok) {
-  //     return response.json()
-  //   } else if (!response.ok) {
-  //     // throw new Error (`Error`)
-  //     this.setState({ error: response.status })
-  //   }
+  // cleanData = (data) => {
+  //   const cleanedData = data.map(movie => {
+  //     return { movie.title }
+  //   })
+  //   console.log('Did clean data get called?')
+  //   //this.setState({ movies: data.movies }
   // }
-  // Note: May use this code in the future to check for specific errors
-  // checkError(response) {
-  //   if (response.status === 422 || response.status === 500) {
-  //     // this.setState({error: response.status})
-  //     // this.decideErrorMsg()
-  //   } else {
-  //     return response.json()
-  //   }
-  // }
+
+
 
   handleClick = (id) => {
     getSingleMovie(id)
@@ -84,12 +66,13 @@ class App extends React.Component {
   // }
 
   render() {
+    console.log("this.state.error", this.state.error)
     return (
       <>
         <Header />
         {this.state.isSelected && <MovieDetails selectedMovie={this.state.selectedMovie} displayMain={this.displayMain} />}
         {!this.state.isSelected && <MovieContainer movies={this.state.movies} chooseMovie={this.handleClick} />}
-        {this.state.error && <h2>Sorry you got a {this.state.error}, please try again.</h2>}
+        {this.state.error && <h2>Sorry you got an error. Please try again.</h2>}
       </>
     )
   }
