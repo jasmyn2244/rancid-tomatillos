@@ -18,9 +18,14 @@ const checkResponseStatus = (response) => {
     }
 }
 
+const cleanAllMovies = ({ movies }) => {
+
+}
+
 const cleanSingleMovie = ({ movie }) => {
     let budget;
     let revenue;
+    let date;
 
     if (!movie.budget || movie.budget === 0) {
         budget = 'Not Available'
@@ -34,11 +39,14 @@ const cleanSingleMovie = ({ movie }) => {
         revenue = `$${movie.revenue}`
     }
 
+    let [year, month, day] = movie.release_date.split('-')
+    date = [month, day, year].join('/')
+
     const cleanedMovie = {
         id: movie.id,
         title: movie.title,
         backdrop_path: movie.backdrop_path,
-        release_date: movie.release_date,
+        release_date: date,
         overview: movie.overview,
         genres: movie.genres.join(', '),
         budget: budget,
