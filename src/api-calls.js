@@ -33,20 +33,27 @@ const cleanAllMovies = ({ movies }) => {
 }
 
 const cleanSingleMovie = ({ movie }) => {
+
     let budget;
     let revenue;
     let date;
 
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2
+    })
+
     if (!movie.budget || movie.budget === 0) {
         budget = 'Not Available'
     } else {
-        budget = `$${movie.budget}`
+        budget = formatter.format(movie.budget)
     }
 
     if (!movie.revenue || movie.revenue === 0) {
         revenue = 'Not Available'
     } else {
-        revenue = `$${movie.revenue}`
+        revenue = formatter.format(movie.revenue)
     }
 
     let [year, month, day] = movie.release_date.split('-')

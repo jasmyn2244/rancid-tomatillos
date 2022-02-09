@@ -3,13 +3,6 @@ import './MovieDetails.scss';
 
 const MovieDetails = ({ selectedMovie, displayMain }) => {
 
-  // formatMoney = (moneyValue) => {
-  //   return moneyValue.toLocaleString('en-US', {
-  //     style: 'currency',
-  //     currency: 'USD',
-  //   })
-  // }
-
   return (
     <section className='movie-details-container'>
       <section className='gen-movie'>
