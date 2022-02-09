@@ -9,7 +9,6 @@ const MovieContainer = ({ movies, chooseMovie }) => {
                 title={movie.title}
                 posterPath={movie.poster_path}
                 avgRating={movie.average_rating}
-                releaseDate={movie.release_date}
                 id={movie.id}
                 key={movie.id}
                 chooseMovie={chooseMovie}
