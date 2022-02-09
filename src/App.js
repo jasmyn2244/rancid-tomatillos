@@ -6,6 +6,7 @@ import MovieContainer from './Components/MovieContainer/MovieContainer';
 import MovieDetails from './Components/MovieDetails/MovieDetails';
 import { getAllMovies, getSingleMovie } from './api-calls';
 
+
 class App extends React.Component {
   constructor() {
     super()
@@ -14,55 +15,23 @@ class App extends React.Component {
       selectedMovie: {},
       isSelected: false,
       error: '',
-      errorMsg: ''
     };
   }
 
   componentDidMount = () => {
     getAllMovies()
-      .then(data => this.setState({ movies: data.movies }))
+      .then(cleanedData => this.setState({ movies: cleanedData }))
       .catch(error => this.setState({ error: error }))
   }
 
-  // cleanData = (data) => {
-  //   const cleanedData = data.map(movie => {
-  //     return { movie.title }
-  //   })
-  //   console.log('Did clean data get called?')
-  //   //this.setState({ movies: data.movies }
-  // }
-
-
-
   handleClick = (id) => {
     getSingleMovie(id)
-    // fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-    //   .then(response => response.json())
-    //   .then(data => this.setState({
-    //     selectedMovie: data.movie,
-    //     isSelected: true,
-    //   }))
-    //Note the set state will  be a bit lagged.
-    // const findMovie = this.state.movies.find(movie => movie.id === id);
-    // this.setState({selectedMovie: findMovie, isSelected: true})
+      .then(cleanedData => this.setState({ selectedMovie: cleanedData, isSelected: true }))
   }
 
   displayMain = () => {
     this.setState({ isSelected: false })
   }
-  // May use this code to display specific error messages.
-  // decideErrorMsg = () => {
-  //   let errorMsg;
-  //   if (this.state.error === 500) {
-  //     errorMsg = 'We fucked up. Sorry.'
-  //   } else if (this.state.error === 404) {
-  //     errorMsg = 'You fucked up. Sorry'
-  //   }
-  //   this.setState({
-  //     errorMsg: errorMsg
-  //   })
-  //   console.log(this.state.errorMsg)
-  // }
 
   render() {
     return (
