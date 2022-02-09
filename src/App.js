@@ -35,7 +35,12 @@ class App extends React.Component {
 
 
   handleClick = (id) => {
+    console.log("id in app", id)
     getSingleMovie(id)
+      .then(data => console.log('data', data))
+    // this.setState({
+    // selectedMovie: data.movie,
+    // isSelected: true,
     // fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
     //   .then(response => response.json())
     //   .then(data => this.setState({
@@ -45,6 +50,7 @@ class App extends React.Component {
     //Note the set state will  be a bit lagged.
     // const findMovie = this.state.movies.find(movie => movie.id === id);
     // this.setState({selectedMovie: findMovie, isSelected: true})
+    // }))
   }
 
   displayMain = () => {
