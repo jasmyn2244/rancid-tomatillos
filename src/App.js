@@ -15,14 +15,12 @@ class App extends React.Component {
       selectedMovie: {},
       isSelected: false,
       error: '',
-      errorMsg: '',
-      getSingleMovie: getSingleMovie
     };
   }
 
   componentDidMount = () => {
     getAllMovies()
-      .then(data => this.setState({ movies: data.movies }))
+      .then(cleanedData => this.setState({ movies: cleanedData }))
       .catch(error => this.setState({ error: error }))
   }
 

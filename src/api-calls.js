@@ -1,7 +1,7 @@
 const getAllMovies = () => {
     return fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
-        .then(response => checkResponseStatus(response)
-        )
+        .then(response => checkResponseStatus(response))
+        .then(data => cleanAllMovies(data))
 }
 
 const getSingleMovie = (id) => {
@@ -19,7 +19,17 @@ const checkResponseStatus = (response) => {
 }
 
 const cleanAllMovies = ({ movies }) => {
+    const cleanedMovies = movies.map(movie => {
+        return {
+            id: movie.id,
+            key: movie.id,
+            title: movie.title,
+            poster_path: movie.poster_path,
+            average_rating: movie.average_rating,
+        }
+    })
 
+    return cleanedMovies
 }
 
 const cleanSingleMovie = ({ movie }) => {
