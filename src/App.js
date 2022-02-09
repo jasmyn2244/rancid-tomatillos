@@ -19,7 +19,6 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-    console.log('component did mount')
     getAllMovies()
       .then(data => this.setState({ movies: data.movies }))
       .catch(error => this.setState({ error: error }))
@@ -66,7 +65,6 @@ class App extends React.Component {
   // }
 
   render() {
-    console.log("this.state.error", this.state.error)
     return (
       <>
         <Header />
