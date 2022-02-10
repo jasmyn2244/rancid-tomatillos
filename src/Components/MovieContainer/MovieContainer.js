@@ -12,7 +12,6 @@ const MovieContainer = ({ movies, chooseMovie }) => {
                     posterPath={movie.poster_path}
                     avgRating={movie.average_rating}
                     id={movie.id}
-                    // key={movie.id}
                     chooseMovie={chooseMovie}
                 />
             </Link>

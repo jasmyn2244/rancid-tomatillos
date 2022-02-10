@@ -15,7 +15,6 @@ class App extends React.Component {
     this.state = {
       movies: [],
       selectedMovie: {},
-      isSelected: false,
       error: '',
     };
   }
@@ -28,28 +27,23 @@ class App extends React.Component {
 
   handleClick = (id) => {
     getSingleMovie(id)
-      .then(cleanedData => this.setState({ selectedMovie: cleanedData, isSelected: true }))
-  }
-
-  displayMain = () => {
-    this.setState({ isSelected: false })
+      .then(cleanedData => this.setState({ selectedMovie: cleanedData }))
   }
 
   render() {
     return (
       <>
         <Header />
-
-        {/* {this.state.isSelected && <MovieDetails selectedMovie={this.state.selectedMovie} displayMain={this.displayMain} />} */}
-        {/* {!this.state.isSelected && <MovieContainer movies={this.state.movies} chooseMovie={this.handleClick} />} */}
         {/* {this.state.error && <h2>Sorry you got an error. Please try again.</h2>} */}
+
+
           <Route exact path="/:movie" render={ ( { match } ) => {
-           return <MovieDetails selectedMovie={this.state.selectedMovie} displayMain={this.displayMain} /> 
+           return <MovieDetails selectedMovie={this.state.selectedMovie} /> 
           } 
         }/>
 
           <Route exact path="/" component= { () => <MovieContainer movies={this.state.movies} chooseMovie={this.handleClick} /> } />
-          <Route path="*"> <ErrorPage backHomeBtn={this.displayMain}/> </Route>
+          <Route path="*"> <ErrorPage /> </Route>
       </>
     )
   }

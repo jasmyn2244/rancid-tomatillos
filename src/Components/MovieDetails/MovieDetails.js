@@ -1,7 +1,8 @@
 import React from "react";
 import './MovieDetails.scss';
+import { Link } from 'react-router-dom'
 
-const MovieDetails = ({ selectedMovie, displayMain }) => {
+const MovieDetails = ({ selectedMovie }) => {
 
   return (
     <section className='movie-details-container'>
@@ -18,7 +19,9 @@ const MovieDetails = ({ selectedMovie, displayMain }) => {
             <p>Release Date: {selectedMovie.release_date}</p>
             <p>Duration: {selectedMovie.runtime}</p>
           </div>
-          <button className='back-to-main-button' onClick={() => displayMain()}>Back to Main</button>
+          <Link to={"/"}>
+            <button className='back-to-main-button'>Back to Main</button>
+          </Link>
           <p className='overview'>{selectedMovie.overview}</p>
         </div>
       </section>
