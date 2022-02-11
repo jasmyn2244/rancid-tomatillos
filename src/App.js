@@ -5,7 +5,6 @@ import Header from './Components/Header/Header.js';
 import MovieContainer from './Components/MovieContainer/MovieContainer';
 import MovieDetails from './Components/MovieDetails/MovieDetails';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
-// import { getAllMovies, getSingleMovie } from './api-calls';
 import { Route, Switch } from 'react-router-dom';
 
 
@@ -16,7 +15,9 @@ const App = () => {
     <>
       <Header />
       <Switch>
-        <Route exact path="/:movie"> <MovieDetails/> </Route>
+        <Route path ="/:id" render={({ match }) => {
+          return < MovieDetails movieID={ match.params.id }/>
+        }}></Route>
         <Route exact path="/"> <MovieContainer/> </Route>
         <Route path="*"> <ErrorPage /> </Route>
       </Switch>

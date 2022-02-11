@@ -7,7 +7,7 @@ import { getAllMovies } from '../../api-calls.js'
 
 class MovieContainer extends React.Component {
     constructor() {
-        super()
+        super();
         this.state = {
             movies: [],
             error: ''
@@ -23,13 +23,12 @@ class MovieContainer extends React.Component {
     getMovieCards = () => {
         const movieCards = this.state.movies.map(movie => {
         return (
-            <Link to={`/${movie.title}`} key={movie.id}>
+            <Link to={`/${movie.id}`} key={movie.id}>
                 <Cards
                     title={movie.title}
                     posterPath={movie.poster_path}
                     avgRating={movie.average_rating}
                     id={movie.id}
-                    // chooseMovie={chooseMovie}
                 />
             </Link>
         )})
