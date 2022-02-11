@@ -15,7 +15,7 @@ const App = () => {
     <>
       <Header />
       <Switch>
-        <Route path ="/:id" render={({ match }) => {
+        <Route exact path ="/:id" render={({ match }) => {
           return < MovieDetails movieID={ match.params.id }/>
         }}></Route>
         <Route exact path="/"> <MovieContainer/> </Route>
@@ -24,6 +24,19 @@ const App = () => {
     </>
   )
 }
+
+
+        // <Route exact path="/:movie" render={({ match }) => {
+        //     const { movie } = match.params;
+        //     if (movie !== this.state.selectedMovie.title) {
+        //       return <ErrorPage />
+        //     } else {
+        //       return <MovieDetails selectedMovie={this.state.selectedMovie} /> 
+        //     }
+        //   }
+        // }
+        // />
+
 
 // class App extends React.Component {
 //   constructor() {

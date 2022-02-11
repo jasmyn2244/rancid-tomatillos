@@ -18,6 +18,7 @@ class MovieContainer extends React.Component {
         getAllMovies()
             .then(cleanedData => this.setState({ movies: cleanedData }))
             .catch(error => this.setState({ error: error }))
+            
     }
 
     getMovieCards = () => {
