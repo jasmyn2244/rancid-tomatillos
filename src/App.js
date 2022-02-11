@@ -1,11 +1,11 @@
 import React from 'react';
-import './reset.scss';
-import './App.scss';
 import Header from './Components/Header/Header.js';
 import MovieContainer from './Components/MovieContainer/MovieContainer';
 import MovieDetails from './Components/MovieDetails/MovieDetails';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import { Route, Switch } from 'react-router-dom';
+import './reset.scss';
+import './App.scss';
 
 
 

@@ -1,3 +1,9 @@
+// cy.fixture('users').as('usersJson') // load data from users.json
+// cy.fixture('logo.png').then((logo) => {
+//     // load data from logo.png
+// })
+
+
 describe('Main view page', () => {
 
     it('Should confirm that true is equal to true', () => {
@@ -10,20 +16,21 @@ describe('Main view page', () => {
             .contains('Rancid Tomatillos')
     })
 
-    it('Should be able to visit the page, render movie cards, and check movie card information', () => {
+    it('Should be able to check all movie card information', () => {
         cy.visit('http://localhost:3001')
-            .get('.movie-cards').should('have.length', 40)
-            .get('.movie-cards').first()
-            // .should()
-            
+            .get('[data-cy=movie-cards]').should('have.length', 40)
+            .get('[data-cy=card-image]').should('have.length', 40)
+            .get('[data-cy=card-title]').should('have.length', 40)
+            .get('[data-cy=card-rating]').should('have.length', 40)
     })
 
-
-
-    
-    //We may need a router test for click here
-    // it('should display a movie details view when a movie card is clicked', () => {
-    //     cy.get('button').click()
-    //     cy.contains('Please fill out both inputs')
-    // });
+    it('Should be able to check individual movie card information and click on it', () => {
+        cy.visit('http://localhost:3001')
+            .get('[data-cy=movie-cards]').first()
+            .should('have.id', '694919')
+            .get('img').first().should('be.visible')
+            .get('[data-cy=card-title]').first().contains('Money Plane')
+            .get('[data-cy=card-rating]').first().contains(6.6)
+            .click()
+    })
 });
