@@ -1,8 +1,9 @@
 import React from 'react';
-import './MovieContainer.scss'
-import Cards from '../Cards/Cards'
+import './MovieContainer.scss';
+import Cards from '../Cards/Cards';
 import { Link } from 'react-router-dom';
-import { getAllMovies } from '../../api-calls.js'
+import { getAllMovies } from '../../api-calls.js';
+import ErrorPage from '../ErrorPage/ErrorPage';
 
 
 class MovieContainer extends React.Component {
@@ -22,26 +23,31 @@ class MovieContainer extends React.Component {
 
     getMovieCards = () => {
         const movieCards = this.state.movies.map(movie => {
-        return (
-            <Link to={`/${movie.id}`} key={movie.id}>
-                <Cards
-                    title={movie.title}
-                    posterPath={movie.poster_path}
-                    avgRating={movie.average_rating}
-                    id={movie.id}
-                />
-            </Link>
-        )})
+            return (
+                <Link to={`/${movie.id}`} key={movie.id}>
+                    <Cards
+                        title={movie.title}
+                        posterPath={movie.poster_path}
+                        avgRating={movie.average_rating}
+                        id={movie.id}
+                    />
+                </Link>
+            )
+        })
 
         return movieCards
     }
 
     render() {
-        return (
-            <section className='movie-container' >
-                { this.getMovieCards() }
-            </section>
-        )
+        if (this.state.error) {
+            return <ErrorPage />
+        } else {
+            return (
+                <section className='movie-container' >
+                    {this.getMovieCards()}
+                </section>
+            )
+        }
     }
 }
 
