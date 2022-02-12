@@ -12,9 +12,8 @@ class SearchBar extends React.Component {
 
     getSearchInput = (event) => {
         this.setState({
-            searchInput: event.target.value.toLowerCase()
+            searchInput: event.target.value.toUpperCase()
         })
-        console.log(this.state.searchInput)
     }
 
     handleSubmit = (event) => {
@@ -31,9 +30,9 @@ class SearchBar extends React.Component {
         return (
             <form>
                 <label>
-                    <input type='text' name='search' value={this.state.searchInput} onChange={event => this.getSearchInput(event)} placeholder="Search"/>
+                    <input type='text' name='search' value={this.state.searchInput} onChange={event => this.getSearchInput(event)} placeholder="Search movie titles"/>
                 </label>
-                <button onClick={event => this.handleSubmit(event)}>Click Me</button>
+                <button onClick={event => this.handleSubmit(event)}>Search</button>
             </form>
             )
         }
