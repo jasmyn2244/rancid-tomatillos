@@ -50,6 +50,18 @@
   justify-content: center;
 }
 
+.back-to-main-button:hover {
+    filter: brightness(115%);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.back-to-main-button:focus {
+    filter: brightness(115%);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
 .movie-title {
   //  border: 2px solid blue;
   color: rgb(240, 240, 240);
