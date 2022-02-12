@@ -1,14 +1,39 @@
 import React from 'react'
+// import MovieContainer from '../MovieContainer/MovieContainer';
 import './SearchBar.scss'
 
-const SearchBar = () => {
-return (
-<div>
-    <input type='text' name='search' value='' placeholder="Search"/>
-    {/* <input name='submit'  */}
-  </div>
-)
-}
+class SearchBar extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            searchInput: ''
+        }
+    }
 
+
+    getSearchInput = (event) => {
+        this.setState({
+            searchInput: event.target.value
+        })
+        console.log(this.state.searchInput)
+    }
+
+    handleSubmit(event) {
+        event.preventDefault()
+        this.props.searchMovies(this.state.searchInput)
+    }
+
+    render() {
+        return (
+            <form>
+                <label>
+                    <input type='text' name='search' value={this.state.searchInput} onChange={event => this.getSearchInput(event)} placeholder="Search"/>
+                </label>
+                <button onClick={event => this.handleSubmit(event)}>Click Me</button>
+            </form>
+            )
+        }
+
+}
 
 export default SearchBar;

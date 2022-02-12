@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import './MovieContainer.scss';
 import Cards from '../Cards/Cards';
 import { Link } from 'react-router-dom';
 import { getAllMovies } from '../../api-calls.js';
 import ErrorPage from '../ErrorPage/ErrorPage';
+import SearchBar  from '../SearchBar/SearchBar';
 
 
 class MovieContainer extends React.Component {
@@ -11,7 +12,8 @@ class MovieContainer extends React.Component {
         super();
         this.state = {
             movies: [],
-            error: ''
+            error: '',
+            searchResults: [],
         }
     }
 
@@ -37,6 +39,16 @@ class MovieContainer extends React.Component {
 
         return movieCards
     }
+    searchMovies = (searchInput) => {
+        console.log('Search input', searchInput)
+        let filteredMovies = this.state.movies.filter(movie => movie.title.toLowerCase().includes(searchInput))
+        console.log('Filtered Movies:', filteredMovies)
+        this.setState({
+            searchResults: filteredMovies
+        })
+        // this.setState({searchResults: filteredMovies});
+        console.log('State results:', this.state.searchResults)
+    }
 
     render() {
         if (this.state.error) {
@@ -44,33 +56,15 @@ class MovieContainer extends React.Component {
         } else {
             return (
                 <section className='movie-container' >
+                    <SearchBar searchMovies={this.searchMovies} />
                     {this.getMovieCards()}
+
                 </section>
             )
         }
     }
 }
 
-export default MovieContainer
-
-// const MovieContainer = ({ movies, chooseMovie }) => {
-//     const movieCards = movies.map(movie => {
-//         return (
-//             <Link to={`/${movie.title}`} key={movie.id}>
-//                 <Cards
-//                     title={movie.title}
-//                     posterPath={movie.poster_path}
-//                     avgRating={movie.average_rating}
-//                     id={movie.id}
-//                     chooseMovie={chooseMovie}
-//                 />
-//             </Link>
-//         )
-//     })
-    // return (
-    //     <section className='movie-container'>
-    //         {movieCards}
-    //     </section>
-    // )
+export default MovieContainer;
 
 
