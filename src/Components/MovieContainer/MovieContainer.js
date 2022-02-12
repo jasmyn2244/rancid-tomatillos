@@ -25,8 +25,8 @@ class MovieContainer extends React.Component {
             .catch(error => this.setState({ error: error }))
     }
 
-    getMovieCards = () => {
-        const movieCards = this.state.movies.map(movie => {
+    renderCards = (movieArr) => {
+        return movieArr.map(movie => {
             return (
                 <Link to={`/${movie.id}`} key={movie.id}>
                     <Cards
@@ -36,10 +36,12 @@ class MovieContainer extends React.Component {
                         id={movie.id}
                     />
                 </Link>
-            )
+        )
         })
+    }
 
-        return movieCards
+    getMovieCards = () => {
+        return this.renderCards(this.state.movies)
     }
 
     searchMovies = (searchInput) => {
@@ -47,44 +49,35 @@ class MovieContainer extends React.Component {
         this.setState({searchResults: filteredMovies, isSearching: true});
     }
 
+    backToMain = () => {
+        return (
+        <Link to={"/"}>
+                <button tabIndex='0' className='back-to-main-button' onClick={event => this.resetState(event)}>Back to Main</button>
+        </Link>
+        )
+    }
 
     getSearchMovieCards = () => {
             if (this.state.searchResults.length === 0) {
                 return ( 
                 <section>
                     <h2 className='search-error'>No tomatillos for you! Try a different movie!</h2>
-                    <Link to={"/"}>
-                        <button tabIndex='0' className='back-to-main-button'>Back to Main</button>
-                    </Link>
+                    {this.backToMain()}
                 </section>
                 )
             } else {
-            const searchedMovies = this.state.searchResults.map(movie => {
                 return (
-
-                        <Link to={`/${movie.id}`} key={movie.id}>
-                            <Cards
-                                title={movie.title}
-                                posterPath={movie.poster_path}
-                                avgRating={movie.average_rating}
-                                id={movie.id}
-
-                            />
-                        </Link>
-             
-               )
-            })
-            return (
-            <>
-            {searchedMovies}
-            <Link to={"/"}>
-                <button tabIndex='0' className='back-to-main-button'>Back to Main</button>
-            </Link>
-            </>
-            )
-
+                <>
+                    {this.renderCards(this.state.searchResults)}
+                    {this.backToMain()}
+                </>
+                )
         }
-        
+    }
+
+    resetState = (event) => {
+        this.setState({isSearching: false});
+
     }
 
     render() {
