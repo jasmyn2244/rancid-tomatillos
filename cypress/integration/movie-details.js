@@ -47,8 +47,6 @@ describe('Movie details view', () => {
         cy.get('button')
             .should('have.text', 'Back to Main')
             .should('have.css', 'transform')
-
-        // cy.get('button').click()
     })
 
     it('Should be able to click back to Home page', () => {
