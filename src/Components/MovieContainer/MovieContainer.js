@@ -48,6 +48,22 @@ class MovieContainer extends React.Component {
         this.setState({searchResults: filteredMovies});
     }
 
+    getSearchMovieCards = () => {
+        const searchedMovies = this.state.searchResults.map(movie => {
+            return (
+                <Link to={`/${movie.id}`} key={movie.id}>
+                    <Cards
+                        title={movie.title}
+                        posterPath={movie.poster_path}
+                        avgRating={movie.average_rating}
+                        id={movie.id}
+                    />
+                </Link>
+            )
+        })
+        return searchedMovies
+    }
+
     render() {
         if (this.state.error) {
             return <ErrorPage />
@@ -55,7 +71,8 @@ class MovieContainer extends React.Component {
             return (
                 <section className='movie-container' >
                     <SearchBar searchMovies={this.searchMovies} />
-                    {this.getMovieCards()}
+                    {!this.state.searchResults.length && this.getMovieCards()}
+                    {this.state.searchResults.length && this.getSearchMovieCards()}
                     {console.log('State results:', this.state.searchResults)}
 
                 </section>

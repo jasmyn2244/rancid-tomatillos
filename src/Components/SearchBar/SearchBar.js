@@ -12,7 +12,7 @@ class SearchBar extends React.Component {
 
     getSearchInput = (event) => {
         this.setState({
-            searchInput: event.target.value
+            searchInput: event.target.value.toLowerCase()
         })
         console.log(this.state.searchInput)
     }
