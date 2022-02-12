@@ -1,4 +1,5 @@
-import React, { useReducer } from 'react';
+// import React, { useReducer } from 'react';
+import React from 'react';
 import './MovieContainer.scss';
 import Cards from '../Cards/Cards';
 import { Link } from 'react-router-dom';
@@ -39,15 +40,12 @@ class MovieContainer extends React.Component {
 
         return movieCards
     }
+
     searchMovies = (searchInput) => {
         console.log('Search input', searchInput)
         let filteredMovies = this.state.movies.filter(movie => movie.title.toLowerCase().includes(searchInput))
         console.log('Filtered Movies:', filteredMovies)
-        this.setState({
-            searchResults: filteredMovies
-        })
-        // this.setState({searchResults: filteredMovies});
-        console.log('State results:', this.state.searchResults)
+        this.setState({searchResults: filteredMovies});
     }
 
     render() {
@@ -58,6 +56,7 @@ class MovieContainer extends React.Component {
                 <section className='movie-container' >
                     <SearchBar searchMovies={this.searchMovies} />
                     {this.getMovieCards()}
+                    {console.log('State results:', this.state.searchResults)}
 
                 </section>
             )

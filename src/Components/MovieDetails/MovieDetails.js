@@ -19,25 +19,8 @@ class MovieDetails extends React.Component {
       .then(cleanedData => this.setState({ selectedMovie: cleanedData }))
       .catch(error => {
         this.setState({error: true})
-        // this.displayError()
       })
   }
-
-  // identifyError = () => {
-  //   if (this.state.error) {
-
-  //   }
-  // }
-
-  // displayError = () => {
-  //   if (this.state.error) {
-  //     return (
-  //       <div>
-  //         <h2>Gabby</h2>
-  //       </div>
-  //     )
-  //   }
-  // }
 
   render() {
     const selectedMovie = this.state.selectedMovie;
@@ -61,7 +44,7 @@ class MovieDetails extends React.Component {
                 <p>Duration: {selectedMovie.runtime}</p>
               </div>
               <Link to={"/"}>
-                <button tabindex='0' className='back-to-main-button'>Back to Main</button>
+                <button tabIndex='0' className='back-to-main-button'>Back to Main</button>
               </Link>
               <p className='overview'>{selectedMovie.overview}</p>
             </div>

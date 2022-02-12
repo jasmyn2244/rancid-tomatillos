@@ -10,7 +10,6 @@ class SearchBar extends React.Component {
         }
     }
 
-
     getSearchInput = (event) => {
         this.setState({
             searchInput: event.target.value
@@ -18,9 +17,14 @@ class SearchBar extends React.Component {
         console.log(this.state.searchInput)
     }
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault()
         this.props.searchMovies(this.state.searchInput)
+        this.clearInputs()
+    }
+
+    clearInputs = () => {
+        this.setState({ searchInput: '' })
     }
 
     render() {
@@ -33,7 +37,6 @@ class SearchBar extends React.Component {
             </form>
             )
         }
-
 }
 
 export default SearchBar;
