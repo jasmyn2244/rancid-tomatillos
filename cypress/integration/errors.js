@@ -1,6 +1,6 @@
 describe('Error page', () => {
 
-    it('Should handle 404 Errors', () => {
+    it('Should handle 404 Errors on Main Page', () => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/', { statusCode: 404 })
 
         cy.visit('http://localhost:3000')
@@ -14,7 +14,7 @@ describe('Error page', () => {
         cy.get('button').click()
     })
 
-    it('Should handle 500 Errors', () => {
+    it('Should handle 500 Errors on Main Page', () => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/', { statusCode: 500 })
 
         cy.visit('http://localhost:3000')
@@ -28,7 +28,7 @@ describe('Error page', () => {
         cy.get('button').click()
     })
 
-    it('Should handle 404 Errors', () => {
+    it('Should handle 404 Errors on Movie Details Page', () => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/*', { statusCode: 404 })
 
         cy.visit('http://localhost:3000/694919')
@@ -42,7 +42,7 @@ describe('Error page', () => {
         cy.get('button').click()
     })
 
-    it('Should handle 500 Errors', () => {
+    it('Should handle 500 Errors from a non-existant path', () => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/*', { statusCode: 500 })
 
         cy.visit('http://localhost:3000/694919')
