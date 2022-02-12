@@ -47,7 +47,7 @@ class MovieDetails extends React.Component {
     } else if (!this.state.error) {
       return (
         <section className='movie-details-container'>
-          <section data-cy='gen-movie' className='gen-movie'>
+          <section className='gen-movie'>
             <div>
               <img src={selectedMovie.backdrop_path} alt={selectedMovie.title}
               />
@@ -61,7 +61,7 @@ class MovieDetails extends React.Component {
                 <p>Duration: {selectedMovie.runtime}</p>
               </div>
               <Link to={"/"}>
-                <button className='back-to-main-button'>Back to Main</button>
+                <button tabindex='0' className='back-to-main-button'>Back to Main</button>
               </Link>
               <p className='overview'>{selectedMovie.overview}</p>
             </div>
