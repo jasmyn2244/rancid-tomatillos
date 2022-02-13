@@ -5,6 +5,11 @@ form {
     text-align: center;
 }
 
+.search {
+    min-width: 160px;
+    display: flex;
+  }
+
 .search-bar {
     font-size: 1em;
     color: white;
@@ -12,16 +17,21 @@ form {
     font-family: 'Raleway', sans-serif;
     border: 0px;
     border-radius: 5px;
-    padding: 4px 30px 4px 30px;
+    padding: 5px 10px;
+    border-right: none;
+    border-radius: 5px 0px 0px 5px;
     background-color: black;
+    margin-left: 0%;
+    margin-right: 0%;
     margin-bottom: 5%;
 }
 
 .search-button {
     width: 30px;
-    height: 30px;
+    height: 29px;
     margin: 0px;
-    border-radius: 3px;
+    padding: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: none;
     background-color: black;
     text-align: center;
