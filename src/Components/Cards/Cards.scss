@@ -1,14 +1,13 @@
 .movie-cards {
-    font-family: 'Raleway', sans-serif;
-    box-sizing: border-box;
-    width: 250px;
     display: flex;
     flex-direction: column;
-    place-self: center;
+    font-size: 1.5em;
+    text-align: center;
+    box-sizing: border-box;
+    width: 250px;
     box-shadow: 0px 5px 10px black;
     color: whitesmoke;
     padding: 3%;
-    text-align: center;
 }
 
 .movie-cards:hover {

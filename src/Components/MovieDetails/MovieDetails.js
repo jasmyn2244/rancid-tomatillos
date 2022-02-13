@@ -44,7 +44,7 @@ class MovieDetails extends React.Component {
                 <p>Duration: {selectedMovie.runtime}</p>
               </div>
               <Link to={"/"}>
-                <button tabIndex='0' className='back-to-main-button'>Back to Main</button>
+                <button className='back-to-main-button'>Back to Main</button>
               </Link>
               <p className='overview'>{selectedMovie.overview}</p>
             </div>

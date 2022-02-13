@@ -2,7 +2,6 @@ import React from 'react';
 import './ErrorPage.scss';
 import { Route, Link } from 'react-router-dom';
 
-
 const ErrorPage = ({ backHomeBtn }) => {
     return (
         <section className="error-page">

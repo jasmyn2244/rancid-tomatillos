@@ -25,9 +25,15 @@ class MovieContainer extends React.Component {
     }
 
     renderCards = (movieArr) => {
+
+        const linkStyle = {
+            width: '250px',
+            textDecoration: 'none'
+        }
+
         return movieArr.map(movie => {
             return (
-                <Link to={`/${movie.id}`} key={movie.id}>
+                <Link to={`/${movie.id}`} key={movie.id} style= {linkStyle}>
                     <Cards
                         title={movie.title}
                         posterPath={movie.poster_path}
@@ -51,7 +57,7 @@ class MovieContainer extends React.Component {
     backToMain = () => {
         return (
             <Link to={"/"}>
-                <button tabIndex='0' className='back-to-main-button' onClick={event => this.resetState(event)}>Back to Main</button>
+                <button className='back-to-main-button' onClick={event => this.resetState(event)}>Back to Main</button>
             </Link>
         )
     }
@@ -59,8 +65,8 @@ class MovieContainer extends React.Component {
     getSearchMovieCards = () => {
         if (this.state.searchResults.length === 0) {
             return ( 
-                <section>
-                    <h2 className='search-error'>No tomatillos for you! Try a different movie!</h2>
+                <section className='search-error'>
+                    <h2 className='error-text'>No tomatillos for you!<br/>Try a different movie!</h2>
                     {this.backToMain()}
                 </section>
             )

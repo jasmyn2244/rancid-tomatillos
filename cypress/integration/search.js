@@ -14,7 +14,7 @@ describe('Search bar functionality', () => {
             .should('have.length', 2)
 
         cy.get('img')
-            .eq(1)
+            .eq(2)
             .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg')
         cy.get('[data-cy=card-title]')
             .first()
@@ -24,7 +24,7 @@ describe('Search bar functionality', () => {
             .should('have.text', '6.7')
 
         cy.get('img')
-            .eq(2)
+            .eq(3)
             .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg')
         cy.get('[data-cy=card-title]')
             .eq(1)
@@ -50,7 +50,7 @@ describe('Search bar functionality', () => {
             .click()
 
         cy.get('h2')
-            .should('have.text', 'No tomatillos for you! Try a different movie!')
+            .should('have.text', 'No tomatillos for you!Try a different movie!')
         cy.get('button')
             .eq(1)
             .should('have.text', 'Back to Main')

@@ -7,8 +7,6 @@ import { Route, Switch } from 'react-router-dom';
 import './reset.scss';
 import './App.scss';
 
-
-
 const App = () => {
 
   return (
