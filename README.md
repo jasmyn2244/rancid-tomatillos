@@ -9,14 +9,13 @@
 
 ## ABSTRACT (WHAT, HOW, WHY)
 Rancid Tomatillos provides users with a variety of movies to browse through either by scrolling or searching by movie title. It is an accessible React application that fetches movie details from an external API, uses Cypress testing to make sure it all works and has error handling to guide the user through our application incase there is an issue! If the user clicks on a movie, the app will take them to a movie details page that includes title, image, budget, revenue, runtime and genre. 
+- INCLUDE PLENTY OF GIFS OF WORKING PROJ
 
 ## Learning Goals
-✅ Gain competency with React fundamentals
-✅ Learn how to test React components & asynchronous JS
-✅ Practice refactoring
-✅ Create a multi-page UX using Router
-
-- INCLUDE PLENTY OF GIFS OF WORKING PROJ
+- ✅ Gain competency with React fundamentals
+- ✅ Learn how to test React components & asynchronous JS
+- ✅ Practice refactoring
+- ✅ Create a multi-page UX using Router
 
 ## FUTURE FEATURES
 - Responsive design so our application is accessible to any screen size.
