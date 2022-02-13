@@ -17,7 +17,10 @@ describe('Main view page', () => {
         cy.get('input')
             .should('have.attr', 'placeholder', 'MOVIE TITLE')
         cy.get('button')
-            .should('have.text', 'SEARCH')
+            .should('have.class', 'search-button')
+        cy.get('img')
+            .eq(1)
+            .should('have.attr', 'alt', 'search icon')
     })
 
     it('Should be able to check all movie card information', () => {
@@ -36,7 +39,7 @@ describe('Main view page', () => {
             .first()
             .should('have.id', '694919')
         cy.get('img')
-            .eq(1)
+            .eq(2)
             .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg')
         cy.get('[data-cy=card-title]')
             .first()
