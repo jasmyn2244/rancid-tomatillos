@@ -57,7 +57,9 @@ class MovieContainer extends React.Component {
     backToMain = () => {
         return (
             <Link to={"/"}>
-                <button className='back-to-main-button' onClick={event => this.resetState(event)}>Back to Main</button>
+                <section className='main-page-btn-section'>
+                    <button className='back-to-main-button' onClick={event => this.resetState(event)} style={{textDecoration: 'none'}}>Back to Main</button>
+                </section>
             </Link>
         )
     }
