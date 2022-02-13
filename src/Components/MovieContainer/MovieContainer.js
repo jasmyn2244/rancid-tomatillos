@@ -59,8 +59,8 @@ class MovieContainer extends React.Component {
     getSearchMovieCards = () => {
         if (this.state.searchResults.length === 0) {
             return ( 
-                <section>
-                    <h2 className='search-error'>No tomatillos for you! Try a different movie!</h2>
+                <section className='search-error'>
+                    <h2 className='error-text'>No tomatillos for you!<br/>Try a different movie!</h2>
                     {this.backToMain()}
                 </section>
             )
