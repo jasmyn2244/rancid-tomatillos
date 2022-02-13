@@ -1,11 +1,10 @@
-// import React, { useReducer } from 'react';
 import React from 'react';
-import './MovieContainer.scss';
 import Cards from '../Cards/Cards';
 import { Link } from 'react-router-dom';
 import { getAllMovies } from '../../api-calls.js';
 import ErrorPage from '../ErrorPage/ErrorPage';
 import SearchBar  from '../SearchBar/SearchBar';
+import './MovieContainer.scss';
 
 
 class MovieContainer extends React.Component {
@@ -36,7 +35,7 @@ class MovieContainer extends React.Component {
                         id={movie.id}
                     />
                 </Link>
-        )
+            )
         })
     }
 
@@ -51,33 +50,32 @@ class MovieContainer extends React.Component {
 
     backToMain = () => {
         return (
-        <Link to={"/"}>
+            <Link to={"/"}>
                 <button tabIndex='0' className='back-to-main-button' onClick={event => this.resetState(event)}>Back to Main</button>
-        </Link>
+            </Link>
         )
     }
 
     getSearchMovieCards = () => {
-            if (this.state.searchResults.length === 0) {
-                return ( 
+        if (this.state.searchResults.length === 0) {
+            return ( 
                 <section>
                     <h2 className='search-error'>No tomatillos for you! Try a different movie!</h2>
                     {this.backToMain()}
                 </section>
-                )
-            } else {
-                return (
-                <>
-                    {this.renderCards(this.state.searchResults)}
-                    {this.backToMain()}
-                </>
-                )
+            )
+        } else {
+            return (
+            <>
+                {this.renderCards(this.state.searchResults)}
+                {this.backToMain()}
+            </>
+            )
         }
     }
 
-    resetState = (event) => {
+    resetState = () => {
         this.setState({isSearching: false});
-
     }
 
     render() {
@@ -96,5 +94,3 @@ class MovieContainer extends React.Component {
 }
 
 export default MovieContainer;
-
-
