@@ -42,13 +42,13 @@ Rancid Tomatillos provides users with a variety of movies to browse through eith
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
 ## INSTRUCTIONS
-- fork the repository
+- fork [this repository](https://github.com/jasmyn2244/rancid-tomatillos)
 - copy the SSH clone address
 - run ```git clone [remote-address]``` in your repo
 - run ```npm install``` in your terminal
-- run ```npm start``` in the Terminal visit localhost:8080
+- run ```npm start``` in the Terminal visit localhost:3000
 
-- now fork and clone the APIs from: 
+- now fork and clone [this API](https://github.com/turingschool-examples/rancid-tomatillos-api) outside of the project
 - run ```npm install``` in your terminal
 - run ```npm start``` in the Terminal
 
