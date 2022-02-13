@@ -7,9 +7,13 @@ describe('Movie details view', () => {
         cy.visit('http://localhost:3000/694919')
 
         cy.get('header')
-            .contains('Rancid Tomatillos')
+            .should('exist')
+
+        cy.get('[data-cy=logo]')
+            .should('have.attr', 'src', '/static/media/LongLogo.b3bf23c04fc580c30a6c.png')
 
         cy.get('img')
+            .eq(1)
             .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg')
 
         cy.get('h2')
@@ -53,7 +57,8 @@ describe('Movie details view', () => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/', { fixture: 'moviesData.json' })
 
         cy.get('button').click()
-        cy.get('[data-cy=movie-cards]').should('have.length', 6)
+        cy.get('[data-cy=movie-cards]')
+            .should('have.length', 6)
     })
 
     it('Should be able to visit another selected movie view, render a header and all the information about the movie that requires no cleaning', () => {
@@ -63,9 +68,13 @@ describe('Movie details view', () => {
         cy.visit('http://localhost:3000/337401')
 
         cy.get('header')
-            .contains('Rancid Tomatillos')
+            .should('exist')
+
+        cy.get('[data-cy=logo]')
+            .should('have.attr', 'src', '/static/media/LongLogo.b3bf23c04fc580c30a6c.png')
 
         cy.get('img')
+            .eq(1)
             .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//zzWGRw277MNoCs3zhyG3YmYQsXv.jpg')
 
         cy.get('h2')
@@ -108,7 +117,9 @@ describe('Movie details view', () => {
     it('Should be able to click back to Home page', () => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/', { fixture: 'moviesData.json' })
 
-        cy.get('button').click()
-        cy.get('[data-cy=movie-cards]').should('have.length', 6)
+        cy.get('button')
+            .click()
+        cy.get('[data-cy=movie-cards]')
+            .should('have.length', 6)
     })
 })

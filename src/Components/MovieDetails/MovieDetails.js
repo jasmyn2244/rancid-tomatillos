@@ -1,8 +1,8 @@
 import React from "react";
-import './MovieDetails.scss';
 import { Link } from 'react-router-dom';
 import { getSingleMovie } from '../../api-calls';
 import ErrorPage from '../ErrorPage/ErrorPage';
+import './MovieDetails.scss';
 
 class MovieDetails extends React.Component {
   constructor(props) {
