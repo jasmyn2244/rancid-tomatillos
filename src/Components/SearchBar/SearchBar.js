@@ -30,9 +30,9 @@ class SearchBar extends React.Component {
         return (
             <form>
                 <label>
-                    <input type='text' name='search' value={this.state.searchInput} onChange={event => this.getSearchInput(event)} placeholder="MOVIE TITLE"/>
-                </label>
-                <button onClick={event => this.handleSubmit(event)}>SEARCH</button>
+                    <input className='search-bar' type='text' name='search' value={this.state.searchInput} onChange={event => this.getSearchInput(event)} placeholder="MOVIE TITLE"/>
+                </label> <br/>
+                <button className= 'search-button' onClick={event => this.handleSubmit(event)}>SEARCH</button>
             </form>
             )
         }

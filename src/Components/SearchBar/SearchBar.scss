@@ -1,5 +1,42 @@
 form {
     position: absolute;
-    top: 8%;
+    top: 5%;
     right: 5%;
+    text-align: center;
+}
+
+.search-bar {
+    font-size: 1em;
+    color: white;
+    text-align: center;
+    border: 0px;
+    // border: 1px solid white;
+    border-radius: 5px;
+    padding: 4px 30px 4px 30px;
+    background-color: black;
+    margin-bottom: 5%;
+}
+
+.search-button {
+    border-radius: 3px;
+    padding: 3px 15px 3px 15px;
+    border: none;
+    // outline: 0;
+    
+}
+
+.search-button:hover {
+    filter: brightness(115%);
+    cursor: pointer;
+    transform: scale(1.2);
+    background-color: white;
+    // border: none;
+}
+
+.search-button:focus {
+    filter: brightness(115%);
+    cursor: pointer;
+    transform: scale(1.2);
+    background-color: white;
+    // border: none;
 }
