@@ -5,7 +5,9 @@ import './Header.scss';
 const Header = () => {
     return (
         <header className='header'>
-            <img data-cy='logo' className='long-logo' alt='long-logo' src={longLogo} />
+            <h1>
+                <img data-cy='logo' className='long-logo' alt='long-logo' src={longLogo} />
+            </h1>
         </header>
     )
 }

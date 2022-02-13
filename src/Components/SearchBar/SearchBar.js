@@ -1,6 +1,6 @@
-import React from 'react'
-// import MovieContainer from '../MovieContainer/MovieContainer';
-import './SearchBar.scss'
+import React from 'react';
+import './SearchBar.scss';
+import searchIcon from './searchIcon.png'
 
 class SearchBar extends React.Component {
     constructor(props) {
@@ -28,11 +28,11 @@ class SearchBar extends React.Component {
 
     render() {
         return (
-            <form>
-                <label>
-                    <input className='search-bar' type='text' name='search' value={this.state.searchInput} onChange={event => this.getSearchInput(event)} placeholder="MOVIE TITLE"/>
-                </label> <br/>
-                <button className= 'search-button' onClick={event => this.handleSubmit(event)}>SEARCH</button>
+            <form className='search'>
+                <input aria-label='search' className='search-bar' type='text' name='search' value={this.state.searchInput} onChange={event => this.getSearchInput(event)} placeholder="MOVIE TITLE"/>
+                <button className= 'search-button' onClick={event => this.handleSubmit(event)}>
+                    <img className="search-icon" src={searchIcon} alt="search icon"></img>
+                </button>
             </form>
             )
         }
