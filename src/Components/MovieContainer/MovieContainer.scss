@@ -22,10 +22,36 @@
 
 .main-page-btn-section {
     display: inline-block;
-    border: 5px yellow solid;
+    // border: 5px yellow solid;
     margin-top: 3%;
     height: 5%;
     position: absolute;
     top: 90%;
     left: 50%;
+}
+
+.back-to-main-button {
+    width: 125px;
+    height: 51px;
+    background-color: #141414;
+    color: whitesmoke;
+    font-family: 'Raleway', sans-serif;
+    border: 2px whitesmoke solid;
+    border-radius: 8%;
+    box-shadow: none;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        border: 2px red solid;
+
+    }
+    
+    &:focus {
+        cursor: pointer;
+        transform: scale(1.1);
+        border: 2px red solid;
+
+    }
+
 }
