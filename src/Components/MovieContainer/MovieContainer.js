@@ -3,7 +3,7 @@ import Cards from '../Cards/Cards';
 import { Link } from 'react-router-dom';
 import { getAllMovies } from '../../api-calls.js';
 import ErrorPage from '../ErrorPage/ErrorPage';
-import SearchBar  from '../SearchBar/SearchBar';
+import SearchBar from '../SearchBar/SearchBar';
 import './MovieContainer.scss';
 
 
@@ -33,7 +33,7 @@ class MovieContainer extends React.Component {
 
         return movieArr.map(movie => {
             return (
-                <Link to={`/${movie.id}`} key={movie.id} style= {linkStyle}>
+                <Link to={`/${movie.id}`} key={movie.id} style={linkStyle}>
                     <Cards
                         title={movie.title}
                         posterPath={movie.poster_path}
@@ -51,37 +51,43 @@ class MovieContainer extends React.Component {
 
     searchMovies = (searchInput) => {
         let filteredMovies = this.state.movies.filter(movie => movie.title.toUpperCase().includes(searchInput))
-        this.setState({searchResults: filteredMovies, isSearching: true});
+        this.setState({ searchResults: filteredMovies, isSearching: true });
     }
 
     backToMain = () => {
         return (
             <Link to={"/"}>
-                <button className='back-to-main-button' onClick={event => this.resetState(event)}>Back to Main</button>
+                <section className='main-page-btn-section'>
+                    <button className='back-to-main-button' onClick={event => this.resetState(event)} style={{ textDecoration: 'none' }}>Back to Main</button>
+                </section>
             </Link>
         )
     }
 
     getSearchMovieCards = () => {
         if (this.state.searchResults.length === 0) {
-            return ( 
-                <section className='search-error'>
-                    <h2 className='error-text'>No tomatillos for you!<br/>Try a different movie!</h2>
+            return (
+                <>
                     {this.backToMain()}
-                </section>
+                    <section className='search-error'>
+                        <h2 className='error-text'>No tomatillos for you!<br />Try a different movie!</h2>
+                    </section>
+                </>
             )
         } else {
             return (
-            <>
-                {this.renderCards(this.state.searchResults)}
-                {this.backToMain()}
-            </>
+                <>
+                    {this.backToMain()}
+                    <section>
+                        {this.renderCards(this.state.searchResults)}
+                    </section>
+                </>
             )
         }
     }
 
     resetState = () => {
-        this.setState({isSearching: false});
+        this.setState({ isSearching: false });
     }
 
     render() {
@@ -91,7 +97,7 @@ class MovieContainer extends React.Component {
             return (
                 <section className='movie-container' >
                     <SearchBar searchMovies={this.searchMovies} />
-                   {this.state.isSearching && this.getSearchMovieCards()}
+                    {this.state.isSearching && this.getSearchMovieCards()}
                     {!this.state.isSearching && this.getMovieCards()}
                 </section>
             )

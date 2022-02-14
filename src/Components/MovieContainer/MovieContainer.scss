@@ -10,12 +10,43 @@
 .error-text {
     color: whitesmoke;
     font-size: 3em;
-    margin-bottom: 5%;
 }
 
 .search-error {
-    position: RELATIVE;
-    left: 90%;
     text-align: center;
     width: 125%;
+}
+
+.main-page-btn-section {
+    margin-top: 3%;
+    height: 5%;
+    position: absolute;
+    top: -1%;
+    left: 69%;
+}
+
+.back-to-main-button {
+    width: 125px;
+    height: 51px;
+    background-color: #141414;
+    color: whitesmoke;
+    font-family: 'Raleway', sans-serif;
+    border: 2px whitesmoke solid;
+    border-radius: 8%;
+    box-shadow: none;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        border: 2px red solid;
+
+    }
+    
+    &:focus {
+        cursor: pointer;
+        transform: scale(1.1);
+        border: 2px red solid;
+
+    }
+
 }

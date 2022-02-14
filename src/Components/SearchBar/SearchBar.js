@@ -1,6 +1,7 @@
 import React from 'react';
 import './SearchBar.scss';
-import searchIcon from './searchIcon.png'
+// import searchIcon from './searchIcon.png'
+import searchIcon from './search-3-256.png'
 
 class SearchBar extends React.Component {
     constructor(props) {
