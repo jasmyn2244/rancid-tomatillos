@@ -13,7 +13,7 @@ Rancid Tomatillos provides users with a variety of movies to browse through eith
 ![Home Page and Details](https://media.giphy.com/media/Z2pRnEcLxzGSqc2b6f/giphy.gif)
 
 
-![Search]()
+![Search](https://media.giphy.com/media/uPDqDv6paym2bVc7aP/giphy.gif)
 
 If a user incorrectly tries to type in a movie ID to directly access that movie's details, they will be shown an error.
 ![Bad Search](https://media.giphy.com/media/AksWQBLI9SWErlPTWk/giphy.gif)
