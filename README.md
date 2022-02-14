@@ -9,7 +9,14 @@
 
 ## ABSTRACT (WHAT, HOW, WHY)
 Rancid Tomatillos provides users with a variety of movies to browse through either by scrolling or searching by movie title. It is an accessible React application that fetches movie details from an external API, uses Cypress testing to make sure it all works and has error handling to guide the user through our application incase there is an issue! If the user clicks on a movie, the app will take them to a movie details page that includes title, image, budget, revenue, runtime and genre. 
+
 ![Home Page and Details](https://media.giphy.com/media/Z2pRnEcLxzGSqc2b6f/giphy.gif)
+
+
+![Search]()
+
+If a user incorrectly tries to type in a movie ID to directly access that movie's details, they will be shown an error.
+![Bad Search](https://media.giphy.com/media/AksWQBLI9SWErlPTWk/giphy.gif)
 
 ## Learning Goals
 - ✅ Gain competency with React fundamentals
@@ -40,8 +47,6 @@ Rancid Tomatillos provides users with a variety of movies to browse through eith
 
 ![Atom](https://img.shields.io/badge/Atom-%2366595C.svg?style=for-the-badge&logo=atom&logoColor=white)
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
-
-![Searching for a movie GIF]()
 
 ## INSTRUCTIONS
 - fork [this repository](https://github.com/jasmyn2244/rancid-tomatillos)
