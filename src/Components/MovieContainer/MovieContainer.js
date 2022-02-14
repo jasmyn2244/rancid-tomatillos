@@ -67,16 +67,20 @@ class MovieContainer extends React.Component {
     getSearchMovieCards = () => {
         if (this.state.searchResults.length === 0) {
             return ( 
-                <section className='search-error'>
-                    <h2 className='error-text'>No tomatillos for you!<br/>Try a different movie!</h2>
+                <>
                     {this.backToMain()}
-                </section>
+                    <section className='search-error'>
+                        <h2 className='error-text'>No tomatillos for you!<br/>Try a different movie!</h2>
+                    </section>
+                </>
             )
         } else {
             return (
             <>
-                {this.renderCards(this.state.searchResults)}
                 {this.backToMain()}
+                <section>
+                    {this.renderCards(this.state.searchResults)}
+                </section>
             </>
             )
         }
